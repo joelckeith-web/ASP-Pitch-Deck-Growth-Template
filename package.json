@@ -1,0 +1,12 @@
+{
+  "name": "alpha-solutions-pitch-deck",
+  "version": "1.0.0",
+  "description": "ASP Growth Accelerator Program — Pitch Deck for Alpha Solutions",
+  "scripts": {
+    "dev": "npx serve public -l 3002",
+    "build": "echo 'Static site — no build step required'"
+  },
+  "devDependencies": {
+    "serve": "^14.2.6"
+  }
+}
