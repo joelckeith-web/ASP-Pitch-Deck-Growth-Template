@@ -8,9 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,900;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <!-- PDF generation libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" defer></script>
 </head>
 <body>
 
@@ -24,25 +21,14 @@
       <span class="asp-header__tagline">Assess. Strategize. Perform.</span>
     </div>
     <div class="asp-header__counter">
-      <span id="currentSlide">01</span><span class="asp-header__slash">/</span><span id="totalSlides">16</span>
+      <span id="currentSlide">01</span><span class="asp-header__slash">/</span><span id="totalSlides">14</span>
     </div>
   </header>
-
-  <!-- NAVIGATION -->
-  <nav class="deck-nav" id="deckNav">
-    <div class="nav-logo">ASP</div>
-    <div class="nav-controls">
-      <button class="nav-btn" id="prevBtn" aria-label="Previous slide">&larr;</button>
-      <span class="nav-counter">Navigate</span>
-      <button class="nav-btn" id="nextBtn" aria-label="Next slide">&rarr;</button>
-    </div>
-    <div class="nav-keys">Use arrow keys or swipe</div>
-  </nav>
 
   <!-- ASP BRAND FOOTER — persistent on every slide -->
   <div class="asp-footer">
     <span>ASP &mdash; Assess. Strategize. Perform.</span>
-    <span class="asp-footer__promise">You own the data. You own the assets. We own the results.</span>
+    <span class="asp-footer__promise">You own the data. You own the assets. We deliver the results.</span>
   </div>
 
   <!-- ============================================
@@ -65,7 +51,7 @@
       <div class="cover__tagline animate-in" data-delay="750">Assess. Strategize. Perform.</div>
     </div>
     <div class="slide__scroll-hint animate-in" data-delay="1000">
-      <span class="scroll-hint-text">Swipe or press &rarr; to begin</span>
+      <span class="scroll-hint-text">Scroll to explore</span>
       <div class="scroll-arrow"></div>
     </div>
   </section>
@@ -97,28 +83,22 @@
       <div class="split__right">
         <div class="services-grid animate-in" data-delay="350">
           <div class="service-card">
-            <div class="service-icon">&#9632;</div>
-            <h4>Heating &amp; Furnace Repair</h4>
+            <h4>Heating &amp; Furnace Service</h4>
           </div>
           <div class="service-card">
-            <div class="service-icon">&#9650;</div>
             <h4>Air Conditioning &amp; Cooling</h4>
           </div>
           <div class="service-card">
-            <div class="service-icon">&#9679;</div>
-            <h4>Appliance Repair &amp; Installation</h4>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">&#9674;</div>
             <h4>Heat Pump Systems</h4>
           </div>
           <div class="service-card">
-            <div class="service-icon">&#9644;</div>
-            <h4>Preventive Maintenance Plans</h4>
+            <h4>Washer &amp; Dryer Repair</h4>
           </div>
           <div class="service-card">
-            <div class="service-icon">&#9711;</div>
-            <h4>Emergency 24/7 Service</h4>
+            <h4>Refrigerator &amp; Freezer Service</h4>
+          </div>
+          <div class="service-card">
+            <h4>Oven, Range &amp; Dishwasher Repair</h4>
           </div>
         </div>
       </div>
@@ -178,19 +158,19 @@
       <h2 class="slide__title animate-in" data-delay="100">The A.S.P. Growth<br /><span class="gradient-text">Accelerator</span> Program</h2>
       <p class="slide__lead animate-in" data-delay="200">A complete, done-for-you marketing system built specifically for Alpha Solutions.</p>
       <div class="framework animate-in" data-delay="300">
-        <div class="framework__step" data-letter="A">
+        <div class="framework__step">
           <div class="framework__letter">A</div>
           <h3>Assess</h3>
           <p>We audit your current marketing, analyze your market, and identify the highest-leverage opportunities.</p>
         </div>
         <div class="framework__connector"></div>
-        <div class="framework__step" data-letter="S">
+        <div class="framework__step">
           <div class="framework__letter">S</div>
           <h3>Strategize</h3>
           <p>We build a custom growth plan targeting your ideal customers across every digital channel.</p>
         </div>
         <div class="framework__connector"></div>
-        <div class="framework__step" data-letter="P">
+        <div class="framework__step">
           <div class="framework__letter">P</div>
           <h3>Perform</h3>
           <p>We execute, optimize, and scale — delivering measurable results month over month.</p>
@@ -225,21 +205,16 @@
         </div>
         <div class="included-item">
           <div class="included-num">04</div>
-          <h4>Meta Ads Funnel</h4>
-          <p>Facebook &amp; Instagram acquisition</p>
+          <h4>Website Buildout</h4>
+          <p>Conversion-optimized 21+ page site</p>
         </div>
         <div class="included-item">
           <div class="included-num">05</div>
-          <h4>Website Buildout</h4>
-          <p>Conversion-optimized digital showroom</p>
-        </div>
-        <div class="included-item">
-          <div class="included-num">06</div>
           <h4>Strategic Consulting</h4>
           <p>Monthly analysis &amp; growth planning</p>
         </div>
-        <div class="included-item included-item--wide">
-          <div class="included-num">07</div>
+        <div class="included-item">
+          <div class="included-num">06</div>
           <h4>Built to Scale</h4>
           <p>Systems designed to grow as you grow</p>
         </div>
@@ -296,7 +271,7 @@
           </div>
           <div class="deliverable-item">
             <span class="deliverable-dot"></span>
-            Geo-targeted campaigns for your NW Washington service areas
+            Geo-targeted campaigns for NW Washington service areas
           </div>
           <div class="deliverable-item">
             <span class="deliverable-dot"></span>
@@ -373,74 +348,14 @@
   </section>
 
   <!-- ============================================
-       SLIDE 9 — META ADS FUNNEL
+       SLIDE 9 — WEBSITE BUILDOUT
        ============================================ -->
-  <section class="slide slide--meta" data-slide="9">
-    <div class="slide__content slide__split">
-      <div class="split__left">
-        <div class="eyebrow animate-in" data-delay="0">Social Acquisition</div>
-        <h2 class="slide__title animate-in" data-delay="100">Meta Ads Funnel</h2>
-        <p class="slide__lead animate-in" data-delay="200">Most homeowners don't think about HVAC maintenance until something breaks. Meta Ads keeps Alpha Solutions top-of-mind — so when that furnace dies or AC quits, you're the first call.</p>
-        <div class="funnel-visual animate-in" data-delay="350">
-          <div class="funnel-stage funnel-stage--top">
-            <span>Awareness</span>
-          </div>
-          <div class="funnel-stage funnel-stage--mid">
-            <span>Consideration</span>
-          </div>
-          <div class="funnel-stage funnel-stage--bot">
-            <span>Conversion</span>
-          </div>
-        </div>
-      </div>
-      <div class="split__right">
-        <div class="deliverable-grid animate-in" data-delay="300">
-          <div class="deliverable-item">
-            <span class="deliverable-dot"></span>
-            Full-funnel Facebook &amp; Instagram strategy
-          </div>
-          <div class="deliverable-item">
-            <span class="deliverable-dot"></span>
-            Lookalike, interest &amp; retargeting audiences
-          </div>
-          <div class="deliverable-item">
-            <span class="deliverable-dot"></span>
-            Scroll-stopping creative for HVAC &amp; appliance repair
-          </div>
-          <div class="deliverable-item">
-            <span class="deliverable-dot"></span>
-            Landing pages optimized for service bookings
-          </div>
-          <div class="deliverable-item">
-            <span class="deliverable-dot"></span>
-            Retargeting sequences for unconverted visitors
-          </div>
-          <div class="deliverable-item">
-            <span class="deliverable-dot"></span>
-            Lead form ads for instant inquiry capture
-          </div>
-          <div class="deliverable-item">
-            <span class="deliverable-dot"></span>
-            A/B testing on creative, copy &amp; audiences
-          </div>
-          <div class="deliverable-item">
-            <span class="deliverable-dot"></span>
-            Monthly performance &amp; budget review
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SLIDE 10 — WEBSITE BUILDOUT
-       ============================================ -->
-  <section class="slide slide--website" data-slide="10">
+  <section class="slide slide--website" data-slide="9">
     <div class="slide__content slide__split">
       <div class="split__left">
         <div class="eyebrow animate-in" data-delay="0">Your Digital Foundation</div>
         <h2 class="slide__title animate-in" data-delay="100">Website Buildout</h2>
-        <p class="slide__lead animate-in" data-delay="200">Your website is your digital showroom. We build it to do one thing: turn visitors into booked service calls.</p>
+        <p class="slide__lead animate-in" data-delay="200">Your website is your digital showroom. We build a brand new 21+ page site designed to turn visitors into booked service calls.</p>
         <div class="browser-mockup animate-in" data-delay="350">
           <div class="browser-bar">
             <span class="browser-dot red"></span>
@@ -470,11 +385,11 @@
           </div>
           <div class="deliverable-item">
             <span class="deliverable-dot"></span>
-            Conversion-optimized service pages
+            Dedicated pages for each HVAC &amp; appliance service
           </div>
           <div class="deliverable-item">
             <span class="deliverable-dot"></span>
-            Service portfolio &amp; before/after gallery
+            Location pages for NW Washington service areas
           </div>
           <div class="deliverable-item">
             <span class="deliverable-dot"></span>
@@ -482,7 +397,7 @@
           </div>
           <div class="deliverable-item">
             <span class="deliverable-dot"></span>
-            SEO-ready structure from day one
+            SEO-ready structure with schema markup
           </div>
           <div class="deliverable-item">
             <span class="deliverable-dot"></span>
@@ -490,7 +405,7 @@
           </div>
           <div class="deliverable-item">
             <span class="deliverable-dot"></span>
-            Analytics &amp; heatmap tracking
+            Analytics &amp; conversion tracking
           </div>
         </div>
       </div>
@@ -498,41 +413,41 @@
   </section>
 
   <!-- ============================================
-       SLIDE 11 — STRATEGIC CONSULTING
+       SLIDE 10 — STRATEGIC CONSULTING
        ============================================ -->
-  <section class="slide slide--consulting" data-slide="11">
+  <section class="slide slide--consulting" data-slide="10">
     <div class="slide__content">
       <div class="eyebrow animate-in" data-delay="0">Your Growth Partner</div>
       <h2 class="slide__title animate-in" data-delay="100">Enhanced Monthly Strategic<br />Consulting &amp; Analysis</h2>
       <p class="slide__lead animate-in" data-delay="200">This isn't "set it and forget it." Every month, we review the data and make strategic decisions together.</p>
       <div class="consulting-grid animate-in" data-delay="300">
         <div class="consult-card">
-          <div class="consult-icon">&#128197;</div>
+          <div class="consult-num">01</div>
           <h4>Monthly Strategy Sessions</h4>
           <p>Dedicated time to review, plan, and align on next steps.</p>
         </div>
         <div class="consult-card">
-          <div class="consult-icon">&#128200;</div>
+          <div class="consult-num">02</div>
           <h4>Performance Dashboard</h4>
           <p>Comprehensive review of every metric that matters.</p>
         </div>
         <div class="consult-card">
-          <div class="consult-icon">&#128176;</div>
+          <div class="consult-num">03</div>
           <h4>Revenue Attribution</h4>
           <p>Know exactly which channels drive which revenue.</p>
         </div>
         <div class="consult-card">
-          <div class="consult-icon">&#127919;</div>
+          <div class="consult-num">04</div>
           <h4>Competitive Intel</h4>
           <p>Stay ahead with regular competitive landscape updates.</p>
         </div>
         <div class="consult-card">
-          <div class="consult-icon">&#128640;</div>
+          <div class="consult-num">05</div>
           <h4>Growth Planning</h4>
           <p>Quarterly goal setting and strategic roadmapping.</p>
         </div>
         <div class="consult-card">
-          <div class="consult-icon">&#128172;</div>
+          <div class="consult-num">06</div>
           <h4>Direct Access</h4>
           <p>Your dedicated ASP strategist, not a support queue.</p>
         </div>
@@ -541,116 +456,51 @@
   </section>
 
   <!-- ============================================
-       SLIDE 12 — BUILT TO SCALE
+       SLIDE 11 — BUILT TO SCALE
        ============================================ -->
-  <section class="slide slide--scale" data-slide="12">
+  <section class="slide slide--scale" data-slide="11">
     <div class="slide__content">
       <div class="eyebrow animate-in" data-delay="0">Future-Proof Growth</div>
       <h2 class="slide__title animate-in" data-delay="100">Systems Designed to<br /><span class="gradient-text">Scale</span> as You Grow</h2>
-      <p class="slide__lead animate-in" data-delay="200">Every system we build is architected for where you're going, not just where you are.</p>
+      <p class="slide__lead animate-in" data-delay="200">Every system we build is set up for where you're going, not just where you are.</p>
       <div class="scale-timeline animate-in" data-delay="300">
         <div class="scale-node">
           <div class="scale-dot"></div>
-          <div class="scale-label">Modular Architecture</div>
-          <p>Add channels and campaigns without rebuilding.</p>
+          <div class="scale-label">Add Services as You Grow</div>
+          <p>New campaigns and channels without starting over.</p>
         </div>
         <div class="scale-line"></div>
         <div class="scale-node">
           <div class="scale-dot"></div>
-          <div class="scale-label">Automated Workflows</div>
-          <p>Handle higher lead volume without more staff.</p>
+          <div class="scale-label">Automated Follow-Ups</div>
+          <p>Handle more leads without hiring more office staff.</p>
         </div>
         <div class="scale-line"></div>
         <div class="scale-node">
           <div class="scale-dot"></div>
-          <div class="scale-label">Smart Budget Allocation</div>
-          <p>Data-driven spend as you expand service areas.</p>
+          <div class="scale-label">Smarter Ad Spend</div>
+          <p>Data-driven budgets as you expand your service area.</p>
         </div>
         <div class="scale-line"></div>
         <div class="scale-node">
           <div class="scale-dot"></div>
-          <div class="scale-label">Seasonal Playbooks</div>
-          <p>Ready for seasonal HVAC demand shifts year-round.</p>
+          <div class="scale-label">Seasonal Game Plans</div>
+          <p>Ready for heating season, cooling season, and everything between.</p>
         </div>
         <div class="scale-line"></div>
         <div class="scale-node">
           <div class="scale-dot"></div>
-          <div class="scale-label">Multi-Location Ready</div>
-          <p>Infrastructure for expanded territory growth.</p>
+          <div class="scale-label">Ready for New Territories</div>
+          <p>Infrastructure built for expanding into new areas.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       SLIDE 13 — SOCIAL MEDIA MANAGEMENT
+       SLIDE 12 — WHY ASP
        ============================================ -->
-  <section class="slide slide--social" data-slide="13">
-    <div class="slide__content slide__split">
-      <div class="split__left">
-        <div class="eyebrow animate-in" data-delay="0">White Glove Content</div>
-        <h2 class="slide__title animate-in" data-delay="100">Social Media<br /><span class="gradient-text">Management</span></h2>
-        <p class="slide__lead animate-in" data-delay="200">We handle everything — custom graphics, professional video editing, compelling copywriting — so your brand stays consistent and scroll-stopping across every platform.</p>
-        <div class="social-price-badge animate-in" data-delay="350">
-          <div class="social-price-tag">
-            <span class="social-dollar">$</span>650<span class="social-period">/mo</span>
-          </div>
-          <span class="social-price-label">White Glove Service</span>
-        </div>
-        <div class="social-platforms animate-in" data-delay="450">
-          <div class="platform-chip"><span class="platform-icon">&#9654;</span> TikTok</div>
-          <div class="platform-chip"><span class="platform-icon">&#9654;</span> YouTube</div>
-          <div class="platform-chip"><span class="platform-icon">&#9654;</span> Facebook</div>
-          <div class="platform-chip"><span class="platform-icon">&#9654;</span> Instagram</div>
-          <div class="platform-chip"><span class="platform-icon">&#9654;</span> LinkedIn</div>
-        </div>
-      </div>
-      <div class="split__right">
-        <div class="social-features animate-in" data-delay="300">
-          <div class="social-feature-card">
-            <div class="social-feat-icon">&#127912;</div>
-            <div>
-              <h4>Custom Graphics &amp; Creative</h4>
-              <p>We design all visual assets — on-brand, scroll-stopping content for every platform.</p>
-            </div>
-          </div>
-          <div class="social-feature-card">
-            <div class="social-feat-icon">&#127909;</div>
-            <div>
-              <h4>Up to 15 Videos Edited / Month</h4>
-              <p>Your raw footage transformed into polished, compelling content that converts.</p>
-            </div>
-          </div>
-          <div class="social-feature-card">
-            <div class="social-feat-icon">&#9997;</div>
-            <div>
-              <h4>Full Copywriting</h4>
-              <p>Captions, hashtags, and copy crafted for each platform and audience.</p>
-            </div>
-          </div>
-          <div class="social-feature-card">
-            <div class="social-feat-icon">&#128197;</div>
-            <div>
-              <h4>Posts Every Other Day</h4>
-              <p>Consistent cadence keeps your brand visible and top-of-mind.</p>
-            </div>
-          </div>
-          <div class="social-feature-card">
-            <div class="social-feat-icon">&#10003;</div>
-            <div>
-              <h4>2-Week Advance Delivery</h4>
-              <p>All creatives &amp; copy delivered in a Google Sheet two weeks before go-live for your approval.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SLIDE 14 — WHY ASP
-       ============================================ -->
-  <section class="slide slide--why" data-slide="14">
+  <section class="slide slide--why" data-slide="12">
     <div class="slide__content">
       <div class="eyebrow animate-in" data-delay="0">The ASP Difference</div>
       <h2 class="slide__title animate-in" data-delay="100">Why Alpha Solutions<br />Should Partner with ASP</h2>
@@ -662,7 +512,7 @@
         </div>
         <div class="why-card">
           <div class="why-icon">&#127968;</div>
-          <h3>Built for Service Businesses</h3>
+          <h3>Built for the Trades</h3>
           <p>We understand HVAC &amp; appliance repair — seasonal demand, emergency calls, local competition, and high-value service contracts. Not generic marketing.</p>
         </div>
         <div class="why-card">
@@ -680,9 +530,9 @@
   </section>
 
   <!-- ============================================
-       SLIDE 15 — INVESTMENT / PRICING
+       SLIDE 13 — INVESTMENT / PRICING
        ============================================ -->
-  <section class="slide slide--pricing" data-slide="15">
+  <section class="slide slide--pricing" data-slide="13">
     <div class="slide__content" style="text-align:center;">
       <div class="eyebrow animate-in" data-delay="0">Your Investment</div>
       <h2 class="slide__title animate-in" data-delay="100">Growth Accelerator<br /><span class="gradient-text">Program Investment</span></h2>
@@ -690,22 +540,19 @@
       <div class="pricing-main animate-in" data-delay="300">
         <div class="pricing-card">
           <div class="pricing-label">Monthly Program Fee</div>
+          <div class="pricing-original"><span class="strikethrough">$3,850/mo</span></div>
           <div class="pricing-amount">
             <span class="dollar">$</span>3,500<span class="period">/mo</span>
           </div>
           <p class="pricing-subtitle">Full A.S.P. Growth Accelerator Program</p>
+          <p class="pricing-discount">Referral discount via Titan Inspection Services</p>
         </div>
       </div>
       <div class="adspend-grid animate-in" data-delay="450" style="margin-left:auto; margin-right:auto;">
-        <div class="adspend-card">
-          <h4>PPC Ad Spend</h4>
-          <div class="adspend-amount">$65/day</div>
-          <div class="adspend-note">Minimum recommended &mdash; Google Ads &amp; LSA</div>
-        </div>
-        <div class="adspend-card">
-          <h4>Meta Ad Spend</h4>
-          <div class="adspend-amount">$35/day</div>
-          <div class="adspend-note">Facebook &amp; Instagram funnel campaigns</div>
+        <div class="adspend-card adspend-card--full">
+          <h4>Recommended Ad Spend</h4>
+          <div class="adspend-amount">$200/day</div>
+          <div class="adspend-note">~$6,000/month &mdash; Google Ads &amp; Local Service Ads</div>
         </div>
       </div>
       <p class="pricing-note animate-in" data-delay="550" style="margin-left:auto; margin-right:auto;">Ad spend is paid directly to the platforms — you maintain full ownership and visibility of your ad accounts. Spend recommendations scale with your growth targets.</p>
@@ -713,9 +560,9 @@
   </section>
 
   <!-- ============================================
-       SLIDE 16 — NEXT STEPS / CTA
+       SLIDE 14 — NEXT STEPS / CTA
        ============================================ -->
-  <section class="slide slide--cta" data-slide="16">
+  <section class="slide slide--cta" data-slide="14">
     <div class="slide__bg-glow slide__bg-glow--cta"></div>
     <div class="slide__content">
       <div class="eyebrow animate-in" data-delay="0">Let's Build This Together</div>
@@ -739,14 +586,9 @@
           <p>Systems go live. Leads flow. Growth begins.</p>
         </div>
       </div>
-      <div class="cta-section animate-in" data-delay="400">
-        <button class="cta-button" id="downloadPdfBtn" type="button">
-          <span class="pdf-btn-icon">&#11015;</span> Download Full Proposal
-        </button>
-      </div>
-      <div class="cta-footer animate-in" data-delay="550">
+      <div class="cta-footer animate-in" data-delay="400">
         <p class="cta-tagline">Assess. Strategize. Perform.</p>
-        <p class="cta-promise">You own the data. You own the assets. We own the results.</p>
+        <p class="cta-promise">You own the data. You own the assets. We deliver the results.</p>
       </div>
     </div>
   </section>

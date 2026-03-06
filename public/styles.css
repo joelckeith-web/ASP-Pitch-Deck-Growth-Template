@@ -37,8 +37,10 @@ body {
   font-family: var(--font);
   background: var(--asp-black);
   color: var(--asp-white);
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* --- PROGRESS BAR --- */
@@ -108,7 +110,7 @@ body {
 /* --- ASP BRAND FOOTER (persistent) --- */
 .asp-footer {
   position: fixed;
-  bottom: 54px; left: 0; right: 0;
+  bottom: 0; left: 0; right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -129,75 +131,21 @@ body {
   letter-spacing: 0;
 }
 
-/* --- NAVIGATION --- */
-.deck-nav {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 2rem;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(76, 201, 240, 0.1);
-  z-index: 999;
-}
-
-.nav-logo {
-  font-weight: 900;
-  font-size: 1.25rem;
-  letter-spacing: 0.15em;
-  background: var(--asp-gradient-cta);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.nav-controls { display: flex; align-items: center; gap: 1rem; }
-
-.nav-btn {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(76, 201, 240, 0.3);
-  background: transparent;
-  color: var(--asp-white);
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex; align-items: center; justify-content: center;
-}
-.nav-btn:hover { background: rgba(76, 201, 240, 0.15); border-color: var(--asp-blue-light); }
-.nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-
-.nav-counter { font-size: 0.875rem; font-weight: 700; color: rgba(255,255,255,0.6); min-width: 50px; text-align: center; }
-
-.nav-keys { font-size: 0.7rem; color: rgba(255,255,255,0.3); }
-
-/* --- SLIDES --- */
+/* --- SLIDES (always scroll mode) --- */
 .slide {
-  position: fixed;
-  inset: 0;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 4rem 6.5rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  transform: translateX(60px);
-  overflow-y: auto;
+  padding: 5rem 4rem 4rem;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: visible;
 }
 
 .slide.active {
   opacity: 1;
   pointer-events: auto;
-  transform: translateX(0);
-}
-
-.slide.exit-left {
-  opacity: 0;
-  transform: translateX(-60px);
 }
 
 .slide__content {
@@ -205,6 +153,18 @@ body {
   width: 100%;
   position: relative;
   z-index: 2;
+}
+
+/* --- ANIMATE IN --- */
+.animate-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* --- SPLIT LAYOUT --- */
@@ -249,18 +209,6 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-/* --- ANIMATE IN --- */
-.animate-in {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.animate-in.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* =============================================
@@ -363,25 +311,23 @@ body {
 }
 
 .slide__scroll-hint {
-  position: absolute;
-  bottom: 5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   text-align: center;
   z-index: 2;
+  margin-top: 2rem;
 }
 .slide__scroll-hint span { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
 .scroll-arrow {
   width: 20px; height: 20px; margin: 0.5rem auto 0;
   border-right: 2px solid rgba(76, 201, 240, 0.4);
   border-bottom: 2px solid rgba(76, 201, 240, 0.4);
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
   animation: bounce-arrow 2s ease infinite;
 }
 
 @keyframes bounce-arrow {
-  0%, 100% { transform: rotate(-45deg) translate(0, 0); opacity: 0.4; }
-  50% { transform: rotate(-45deg) translate(4px, 4px); opacity: 1; }
+  0%, 100% { transform: rotate(45deg) translate(0, 0); opacity: 0.4; }
+  50% { transform: rotate(45deg) translate(4px, 4px); opacity: 1; }
 }
 
 /* =============================================
@@ -424,18 +370,13 @@ body {
   border-color: rgba(76, 201, 240, 0.25);
   transform: translateY(-2px);
 }
-.service-icon {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--asp-blue-light);
-}
 .service-card h4 { font-size: 0.85rem; font-weight: 700; color: var(--asp-white); }
 
 /* =============================================
    SLIDE 3 — CHALLENGE
    ============================================= */
 .slide--challenge {
-  background: radial-gradient(ellipse at 50% 30%, rgba(239, 68, 68, 0.08) 0%, transparent 50%),
+  background: radial-gradient(ellipse at 50% 30%, rgba(0, 35, 102, 0.3) 0%, transparent 50%),
               var(--asp-black);
 }
 
@@ -453,7 +394,7 @@ body {
   padding: 1.5rem;
   transition: all 0.3s ease;
 }
-.pain-card:hover { border-color: rgba(239, 68, 68, 0.2); background: rgba(239, 68, 68, 0.03); }
+.pain-card:hover { border-color: rgba(76, 201, 240, 0.2); background: rgba(76, 201, 240, 0.03); }
 
 .pain-number {
   font-size: 2rem;
@@ -506,24 +447,7 @@ body {
   overflow: visible;
 }
 
-/* Decorative watermark letter — asymmetric, overlapping card edges */
-.framework__step::before {
-  content: attr(data-letter);
-  position: absolute;
-  top: -18px;
-  right: -10px;
-  font-family: var(--font);
-  font-weight: 900;
-  font-size: 6rem;
-  line-height: 1;
-  background: var(--asp-gradient-cta);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  opacity: 0.06;
-  pointer-events: none;
-  z-index: 0;
-}
+/* Watermark removed */
 
 .framework__letter {
   width: 72px; height: 72px;
@@ -601,9 +525,9 @@ body {
 .included-item p { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
 
 /* =============================================
-   SLIDE 6, 7, 8, 9, 10 — SPLIT DETAIL SLIDES
+   SLIDES 6–9 — SPLIT DETAIL SLIDES
    ============================================= */
-.slide--system, .slide--ppc, .slide--seo, .slide--meta, .slide--website {
+.slide--system, .slide--ppc, .slide--seo, .slide--website {
   background: radial-gradient(ellipse at 30% 50%, rgba(0, 35, 102, 0.3) 0%, transparent 55%),
               var(--asp-black);
 }
@@ -616,7 +540,7 @@ body {
 }
 .feature-list li {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.75rem;
   font-size: 0.95rem;
   color: rgba(255,255,255,0.8);
@@ -647,7 +571,7 @@ body {
 }
 .ownership-icon { font-size: 1.25rem; }
 
-/* --- DELIVERABLE GRID (used across PPC, SEO, Meta, Website) --- */
+/* --- DELIVERABLE GRID (used across PPC, SEO, Website) --- */
 .deliverable-grid {
   display: flex;
   flex-direction: column;
@@ -657,9 +581,9 @@ body {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: rgba(255,255,255,0.75);
-  padding: 0.75rem 1rem;
+  padding: 1rem 1.25rem;
   background: rgba(255,255,255,0.02);
   border-radius: var(--radius-md);
   border-left: 2px solid transparent;
@@ -677,34 +601,7 @@ body {
 }
 
 /* =============================================
-   SLIDE 9 — META FUNNEL VISUAL
-   ============================================= */
-.funnel-visual {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  margin-top: 0.5rem;
-}
-
-.funnel-stage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 48px;
-  font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--asp-white);
-  border-radius: var(--radius-md);
-}
-.funnel-stage--top { width: 100%; background: rgba(76, 201, 240, 0.2); border: 1px solid rgba(76, 201, 240, 0.3); }
-.funnel-stage--mid { width: 75%; background: rgba(76, 201, 240, 0.3); border: 1px solid rgba(76, 201, 240, 0.4); margin-top: -1px; }
-.funnel-stage--bot { width: 50%; background: var(--asp-gradient-cta); margin-top: -1px; }
-
-/* =============================================
-   SLIDE 10 — BROWSER MOCKUP
+   SLIDE 10 — WEBSITE MOCKUP
    ============================================= */
 .browser-mockup {
   background: rgba(255,255,255,0.03);
@@ -744,7 +641,7 @@ body {
 .mock-block { height: 50px; background: rgba(76, 201, 240, 0.1); border-radius: var(--radius-sm); }
 
 /* =============================================
-   SLIDE 11 — CONSULTING
+   SLIDE 10 — CONSULTING
    ============================================= */
 .slide--consulting {
   background: radial-gradient(ellipse at 50% 50%, rgba(0, 35, 102, 0.3) 0%, transparent 50%),
@@ -766,15 +663,27 @@ body {
   transition: all 0.3s ease;
 }
 .consult-card:hover { border-color: rgba(76, 201, 240, 0.2); transform: translateY(-3px); }
-.consult-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+
+/* Gradient number replacing emoji icons */
+.consult-num {
+  font-size: 2rem;
+  font-weight: 900;
+  background: var(--asp-gradient-cta);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
 .consult-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
 .consult-card p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
 
 /* =============================================
-   SLIDE 12 — SCALE / TIMELINE
+   SLIDE 11 — SCALE / TIMELINE
    ============================================= */
 .slide--scale {
-  background: radial-gradient(ellipse at 70% 40%, rgba(159, 76, 255, 0.12) 0%, transparent 50%),
+  background: radial-gradient(ellipse at 70% 40%, rgba(0, 35, 102, 0.3) 0%, transparent 50%),
               var(--asp-black);
 }
 
@@ -811,120 +720,7 @@ body {
 }
 
 /* =============================================
-   SLIDE 13 — SOCIAL MEDIA MANAGEMENT
-   ============================================= */
-.slide--social {
-  background: radial-gradient(ellipse at 40% 40%, rgba(159, 76, 255, 0.12) 0%, transparent 50%),
-              radial-gradient(ellipse at 70% 70%, rgba(0, 35, 102, 0.2) 0%, transparent 50%),
-              var(--asp-black);
-}
-
-.social-price-badge {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: rgba(159, 76, 255, 0.08);
-  border: 1px solid rgba(159, 76, 255, 0.2);
-  border-radius: var(--radius-xl);
-  padding: 1rem 1.5rem;
-}
-.social-price-tag {
-  font-weight: 900;
-  font-size: 2rem;
-  color: var(--asp-white);
-  line-height: 1;
-}
-.social-dollar {
-  font-size: 0.5em;
-  vertical-align: super;
-  color: var(--asp-purple);
-}
-.social-period {
-  font-size: 0.4em;
-  font-weight: 400;
-  color: rgba(255,255,255,0.4);
-}
-.social-price-label {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.5);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.social-platforms {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.platform-chip {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.9rem;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 100px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.7);
-  transition: all 0.2s ease;
-}
-.platform-chip:hover {
-  background: rgba(76, 201, 240, 0.08);
-  border-color: rgba(76, 201, 240, 0.25);
-  color: var(--asp-blue-light);
-}
-.platform-icon {
-  font-size: 0.6rem;
-  color: var(--asp-blue-light);
-}
-
-.social-features {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.social-feature-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
-  transition: all 0.25s ease;
-}
-.social-feature-card:hover {
-  background: rgba(159, 76, 255, 0.04);
-  border-color: rgba(159, 76, 255, 0.15);
-  transform: translateX(4px);
-}
-.social-feat-icon {
-  font-size: 1.5rem;
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(159, 76, 255, 0.1);
-  border-radius: var(--radius-md);
-}
-.social-feature-card h4 {
-  font-size: 0.9rem;
-  font-weight: 700;
-  margin-bottom: 0.2rem;
-  color: var(--asp-white);
-}
-.social-feature-card p {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.5;
-}
-
-/* =============================================
-   SLIDE 14 — WHY ASP
+   SLIDE 12 — WHY ASP
    ============================================= */
 .slide--why {
   background: radial-gradient(ellipse at 50% 60%, rgba(0, 35, 102, 0.3) 0%, transparent 50%),
@@ -1006,13 +802,25 @@ body {
   margin-bottom: 0.75rem;
 }
 
+/* Original price crossed out */
+.pricing-original {
+  margin-bottom: 0.5rem;
+}
+.strikethrough {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.35);
+  text-decoration: line-through;
+  text-decoration-color: rgba(239, 68, 68, 0.6);
+}
+
 .pricing-amount {
   font-weight: 900;
   font-size: clamp(3rem, 6vw, 4.5rem);
   line-height: 1.1;
   color: var(--asp-white);
 }
-.pricing-amount .dollar { font-size: 0.5em; vertical-align: super; color: var(--asp-blue-light); }
+.pricing-amount .dollar { font-size: 0.5em; vertical-align: super; color: var(--asp-white); }
 .pricing-amount .period { font-size: 0.3em; font-weight: 400; color: rgba(255,255,255,0.4); }
 
 .pricing-subtitle {
@@ -1021,9 +829,24 @@ body {
   margin-top: 0.5rem;
 }
 
+/* Referral discount badge */
+.pricing-discount {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.25rem;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--asp-success);
+  letter-spacing: 0.02em;
+}
+
+/* Ad spend — single centered card */
 .adspend-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: center;
   gap: 1.25rem;
   margin-top: 2rem;
   max-width: 700px;
@@ -1036,6 +859,10 @@ body {
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   text-align: center;
+}
+.adspend-card--full {
+  max-width: 400px;
+  width: 100%;
 }
 .adspend-card h4 {
   font-size: 0.8rem;
@@ -1066,7 +893,7 @@ body {
 }
 
 /* =============================================
-   SLIDE 14 — CTA
+   SLIDE — CTA
    ============================================= */
 .slide--cta {
   background: radial-gradient(ellipse at 50% 40%, rgba(0, 35, 102, 0.5) 0%, transparent 60%),
@@ -1113,78 +940,6 @@ body {
   flex-shrink: 0;
 }
 
-.cta-section { margin-top: 2rem; }
-
-.cta-button {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  background: var(--asp-gradient-cta);
-  color: var(--asp-white);
-  font-family: var(--font);
-  font-weight: 700;
-  font-size: 1.05rem;
-  text-decoration: none;
-  border-radius: var(--radius-lg);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 30px rgba(76, 201, 240, 0.2);
-}
-.cta-button:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(76, 201, 240, 0.35); }
-
-/* --- PDF DOWNLOAD (on main CTA button) --- */
-.pdf-btn-icon {
-  display: inline-block;
-  margin-right: 0.3rem;
-  font-size: 0.9em;
-}
-
-.cta-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-/* --- PDF GENERATION OVERLAY --- */
-.pdf-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  gap: 1.5rem;
-}
-
-.pdf-overlay__text {
-  font-family: var(--font);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--asp-white);
-  letter-spacing: 0.02em;
-}
-
-.pdf-overlay__progress {
-  width: 280px;
-  height: 4px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 100px;
-  overflow: hidden;
-}
-
-.pdf-overlay__bar {
-  height: 100%;
-  background: var(--asp-gradient-cta);
-  border-radius: 100px;
-  width: 0%;
-  transition: width 0.3s ease;
-}
-
 .cta-footer { margin-top: 2rem; }
 .cta-tagline { font-weight: 700; font-size: 0.9rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
 .cta-promise { font-size: 0.85rem; color: rgba(255,255,255,0.3); margin-top: 0.25rem; }
@@ -1193,7 +948,7 @@ body {
    RESPONSIVE — TABLET
    ============================================= */
 @media (max-width: 1024px) {
-  .slide { padding: 2rem 2rem 5rem; }
+  .slide { padding: 5rem 2rem 3rem; }
   .slide__split { grid-template-columns: 1fr; gap: 2rem; }
   .pain-grid, .included-grid, .consulting-grid { grid-template-columns: 1fr 1fr; }
   .included-item--wide { grid-column: span 2; }
@@ -1204,97 +959,37 @@ body {
   .steps-row { flex-direction: column; align-items: center; }
   .step-arrow { transform: rotate(90deg); margin: 0; }
   .why-grid { grid-template-columns: 1fr; }
-  .adspend-grid { grid-template-columns: 1fr; max-width: 350px; }
 }
 
 /* =============================================
-   RESPONSIVE — MOBILE (continuous scroll mode)
+   RESPONSIVE — MOBILE
    ============================================= */
 @media (max-width: 768px) {
-  /* Switch body to scrollable */
-  body.mobile-scroll {
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* Convert slides from fixed overlay to stacked flow */
-  body.mobile-scroll .slide {
-    position: relative;
-    inset: auto;
-    opacity: 1;
-    pointer-events: auto;
-    transform: none !important;
-    transition: none;
-    min-height: 100vh;
-    min-height: 100dvh;
+  .slide {
     padding: 5rem 1.25rem 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
-  body.mobile-scroll .slide.exit-left {
-    opacity: 1;
-    transform: none !important;
+  .asp-header {
+    padding: 0.5rem 1rem;
+  }
+  .asp-header__tagline {
+    display: none;
   }
 
-  /* All animate-in elements visible — use IntersectionObserver instead */
-  body.mobile-scroll .animate-in {
+  .asp-footer {
+    display: none;
+  }
+
+  .animate-in {
     opacity: 0;
     transform: translateY(20px);
   }
-  body.mobile-scroll .animate-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
 
-  /* Header stays fixed and sticky */
-  body.mobile-scroll .asp-header {
-    padding: 0.5rem 1rem;
-  }
-  body.mobile-scroll .asp-header__tagline {
-    display: none;
-  }
-
-  /* Hide bottom nav on mobile — we scroll now */
-  body.mobile-scroll .deck-nav {
-    display: none;
-  }
-
-  /* Hide the persistent footer on mobile — it overlaps content */
-  body.mobile-scroll .asp-footer {
-    display: none;
-  }
-
-  /* Scroll hint on cover */
-  body.mobile-scroll .scroll-hint-text {
-    font-size: 0.7rem;
-  }
-  body.mobile-scroll .scroll-hint-text::after {
-    content: 'Scroll to explore';
-  }
-  body.mobile-scroll .scroll-hint-text {
-    font-size: 0;
-  }
-  body.mobile-scroll .scroll-hint-text::after {
-    font-size: 0.7rem;
-    color: rgba(255,255,255,0.3);
-  }
-  body.mobile-scroll .slide__scroll-hint {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    margin-top: 2rem;
-  }
-
-  /* Background glows — use viewport-based sizes so no rectangles */
-  body.mobile-scroll .slide__bg-glow {
+  .slide__bg-glow {
     width: 120vw;
     height: 120vw;
   }
-  body.mobile-scroll .slide__bg-glow--cta {
+  .slide__bg-glow--cta {
     width: 140vw;
     height: 140vw;
   }
@@ -1304,12 +999,10 @@ body {
   .included-item--wide { grid-column: span 1; }
   .services-grid { grid-template-columns: 1fr; }
 
-  /* Slide 5 title — prevent awkward line breaks */
   .slide--included .slide__title {
     font-size: clamp(1.5rem, 5.5vw, 2.2rem);
   }
 
-  /* General mobile typography */
   .slide__title {
     font-size: clamp(1.6rem, 6vw, 2.5rem);
   }
@@ -1320,28 +1013,11 @@ body {
     font-size: clamp(2.5rem, 12vw, 4rem);
   }
 
-  /* Framework step decoration — bigger and more offset on mobile */
-  .framework__step::before {
-    font-size: 4.5rem;
-    top: -14px;
-    right: -6px;
-    opacity: 0.08;
-  }
-
-  /* Pricing card padding */
   .pricing-card {
     padding: 1.5rem 1.25rem;
-  }
-
-  /* CTA button */
-  .cta-button {
-    font-size: 0.95rem;
-    padding: 0.875rem 2rem;
   }
 }
 
 @media (max-width: 640px) {
-  .slide { padding: 1.5rem 1.25rem 5rem; }
-  body.mobile-scroll .slide { padding: 4.5rem 1rem 2.5rem; }
-  .nav-keys { display: none; }
+  .slide { padding: 4.5rem 1rem 2.5rem; }
 }
